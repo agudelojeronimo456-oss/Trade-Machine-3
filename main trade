@@ -1,48 +1,109 @@
+-- GUI moderna draggable (Roblox Lua)
+
+local UIS = game:GetService("UserInputService")
+local Player = game.Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+
 -- Crear GUI
 local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = PlayerGui
+
 local Frame = Instance.new("Frame")
-local Title = Instance.new("TextLabel")
-local ToggleButton = Instance.new("TextButton")
-
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
--- Frame principal
 Frame.Parent = ScreenGui
-Frame.Size = UDim2.new(0, 200, 0, 120)
-Frame.Position = UDim2.new(0.5, -100, 0.5, -60)
-Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.Size = UDim2.new(0, 220, 0, 130)
+Frame.Position = UDim2.new(0.5, -110, 0.5, -65)
+Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Frame.BorderSizePixel = 0
+
+-- Bordes redondeados
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.Parent = Frame
+
+-- Sombra suave
+local UIStroke = Instance.new("UIStroke")
+UIStroke.Parent = Frame
+UIStroke.Color = Color3.fromRGB(60, 60, 60)
+UIStroke.Thickness = 1
 
 -- Título
+local Title = Instance.new("TextLabel")
 Title.Parent = Frame
-Title.Size = UDim2.new(1, 0, 0.4, 0)
+Title.Size = UDim2.new(1, 0, 0, 40)
 Title.BackgroundTransparency = 1
 Title.Text = "Freeze Trade"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextScaled = true
+Title.Font = Enum.Font.GothamBold
 
 -- Botón toggle
+local ToggleButton = Instance.new("TextButton")
 ToggleButton.Parent = Frame
-ToggleButton.Size = UDim2.new(1, -20, 0.4, 0)
-ToggleButton.Position = UDim2.new(0, 10, 0.5, 10)
-ToggleButton.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
+ToggleButton.Size = UDim2.new(0.85, 0, 0, 45)
+ToggleButton.Position = UDim2.new(0.075, 0, 0.55, 0)
+ToggleButton.BackgroundColor3 = Color3.fromRGB(120, 30, 30)
 ToggleButton.Text = "Active: OFF"
 ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 ToggleButton.TextScaled = true
+ToggleButton.Font = Enum.Font.Gotham
+
+local ButtonCorner = Instance.new("UICorner")
+ButtonCorner.CornerRadius = UDim.new(0, 10)
+ButtonCorner.Parent = ToggleButton
 
 -- Estado
 local active = false
 
--- Función toggle
 ToggleButton.MouseButton1Click:Connect(function()
 	active = not active
 	
 	if active then
 		ToggleButton.Text = "Active: ON"
-		ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 150, 0)
+		ToggleButton.BackgroundColor3 = Color3.fromRGB(40, 170, 80)
 	else
 		ToggleButton.Text = "Active: OFF"
-		ToggleButton.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
+		ToggleButton.BackgroundColor3 = Color3.fromRGB(120, 30, 30)
 	end
 	
-	print("Freeze Trade está:", active)
+	print("Freeze Trade:", active)
+end)
+
+-- DRAGGABLE
+local dragging = false
+local dragInput, dragStart, startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	Frame.Position = UDim2.new(
+		startPos.X.Scale,
+		startPos.X.Offset + delta.X,
+		startPos.Y.Scale,
+		startPos.Y.Offset + delta.Y
+	)
+end
+
+Frame.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = true
+		dragStart = input.Position
+		startPos = Frame.Position
+		
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+Frame.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement then
+		dragInput = input
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
 end)
